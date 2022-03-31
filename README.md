@@ -1,4 +1,5 @@
-# website-01
+# website:
+https://potatokaka.github.io/Vue_SoothingSushi/
 
 ## Project setup
 ```
