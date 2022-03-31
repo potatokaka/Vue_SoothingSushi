@@ -1,0 +1,26 @@
+.h-hero {
+    height: 85vh;
+    @include media-breakpoint-up(md) {
+        // height: 43.75rem; // 700px
+         height: 42.55rem; // 680px
+
+    }
+}
+.h-hero-innerImg {
+    // height: 35rem; // 560px
+    width: 22.5rem; // 360px
+    height: 100%;
+    
+}
+.h-footerLogo {
+    width: 1.5rem; 
+    @include media-breakpoint-up(md) {
+        width: 6.25rem // 100px;
+    }
+}
+.h-btn-lg {
+    height: 3.25rem; //42
+}
+.w-btn-md {
+    width: 8.25rem; //132
+}

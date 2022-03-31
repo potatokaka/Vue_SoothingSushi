@@ -1,0 +1,20 @@
+.logo-header {
+    width: 5rem; // 130px
+    @include media-breakpoint-up(md) {
+        width: 8.125rem; 
+    }
+}
+// @media (max-width: 767.98px) { 
+//     .logo-header {
+//         width: 5rem; // 130px
+//     }
+// }
+
+@media (max-width: 767.98px) { // 讓手機版展開選單時， logo 可以固定不動
+    .custom-header-md-open {
+        position: absolute;
+        top: 100%;
+        right: 0px;
+        left: 0px;
+    }
+}

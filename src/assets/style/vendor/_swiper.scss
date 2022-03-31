@@ -1,0 +1,14 @@
+.h-swiper-card {
+    width: 8.5rem; //136
+}
+
+.swiper-wrapper {
+    padding: 0 0 3rem 0;
+}
+
+.swiper-pagination-bullet {
+    background: $gray-200 !important
+}
+.swiper-pagination-bullet-active {
+    background: $primary !important;
+  }

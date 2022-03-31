@@ -1,0 +1,16 @@
+@import "~bootstrap/scss/functions"; // NPM
+@import "./helpers/variables"; // 自定義變數
+
+@import "~bootstrap/scss/bootstrap"; // NPM
+
+// 客製化
+@import "./helpers/utilities";
+@import "./helpers/sizing";
+@import "./helpers/background";
+@import "./component/navbar"; 
+@import "./base/base";
+
+
+// 套件
+@import "./vendor/swiper";
+
