@@ -1,5 +1,5 @@
 .h-hero {
-    height: 90vh;
+    height: 100vh;
     @include media-breakpoint-up(md) {
         // height: 43.75rem; // 700px
          height: 42.55rem; // 680px
@@ -8,7 +8,7 @@
 }
 .h-hero-innerImg {
     // height: 35rem; // 560px
-    width: 22.5rem; // 360px
+    width: 22rem;
     height: 100%;
     
 }

@@ -23,7 +23,9 @@
             An NFT like no other, all you can eat. <br />
             A State-of-the-Art Suchi Bar
           </p>
-          <button class="btn btn-outline-white btn-lg mt-4 px-6 rounded-pill">
+          <button
+            class="btn btn-outline-white btn-lg mt-2 mt-lg-4 px-6 rounded-pill"
+          >
             Get NFT
           </button>
         </div>
