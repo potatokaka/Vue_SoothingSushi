@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid px-5 px-lg-8 mt-8">
+  <div class="container-fluid px-5 px-lg-8 mt-8" id="cardList">
     <h2 class="mt-8 text-center text-gray-200 h1">Featured NFT</h2>
     <div class="row row-cols-1 row-cols-lg-3 g-5 mt-3">
       <div class="col text-gray-200" v-for="item in products" :key="item.id">
@@ -11,9 +11,6 @@
           :shadow-scale="1.05"
           :rotateXMax="20"
           :rotateYMax="20"
-          @enter="onEnter"
-          @leave="onLeave"
-          @rotate="onRotate"
         >
           <router-link :to="`/product/${item.id}`">
             <img :src="item.imageUrl" data-atropos-offset="-5" class="w-100" />
@@ -68,17 +65,6 @@ export default {
   components: {
     Atropos
   },
-  // Atropos
-  // setup () {
-  //   const onEnter = () => console.log('Enter')
-  //   const onLeave = () => console.log('Leave')
-  //   const onRotate = (x, y) => console.log('Rotate', x, y)
-  //   return {
-  //     onEnter,
-  //     onLeave,
-  //     onRotate
-  //   }
-  // },
   methods: {
     getProducts () {
       this.$http

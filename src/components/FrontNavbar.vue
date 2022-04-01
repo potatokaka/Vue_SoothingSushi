@@ -13,13 +13,6 @@
             alt="logo"
           />
         </router-link>
-        <!-- <a
-            class="navbar-brand position-absolute"
-            href="./index.html"
-            style="left: 50%; transform: translate(-50%, -50%); top: 50%"
-          >
-            Navbar
-          </a> -->
         <button
           class="navbar-toggler"
           type="button"
@@ -37,33 +30,26 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <a class="nav-link ps-0 link-white me-3" href="./product.html"
+              <!-- <a class="nav-link ps-0 link-white me-3" href="#cardList"
                 >About</a
+              > -->
+              <router-link to="/#cardList" class="nav-link ps-0 link-white me-3"
+                >About</router-link
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link link-white me-3" href="./detail.html"
-                >Line-Up</a
+              <!-- <a class="nav-link link-white me-3" href="./detail.html"
+                >Team</a
+              > -->
+              <router-link to="/#team" class="nav-link ps-0 link-white me-3"
+                >Team</router-link
               >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link link-white" href="./detail.html">Roadmap</a>
             </li>
           </ul>
         </div>
         <div class="d-flex">
-          <a href="#" class="link-white me-5">
+          <!-- <a href="#" class="link-white me-5 disabled">
             <i class="bi bi-heart fs-5"></i>
-          </a>
-          <!-- <a href="./cart-2.html" class="link-white position-relative">
-            <i class="bi bi-cart fs-5 pe-1"></i>
-            <span
-              class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger fs-9 mt-1"
-              v-if="cart.carts?.length > 0"
-            >
-              {{ cart.carts?.length }}
-              <span class="visually-hidden">cart items</span>
-            </span>
           </a> -->
           <router-link to="/cart" class="link-white position-relative">
             <i class="bi bi-cart fs-5 pe-1"></i>

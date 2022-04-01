@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid pt-8">
+  <div class="container-fluid pt-8" id="Team">
     <h2 class="mt-5 text-center text-gray-200 h1">Team</h2>
     <swiper
       :loop="true"
@@ -66,11 +66,8 @@ import { Swiper, SwiperSlide } from 'swiper/vue/swiper-vue'
 import { Autoplay, Pagination } from 'swiper'
 
 // Import Swiper styles
-// import 'swiper/css'
 import 'swiper/swiper.scss'
-// import 'swiper/css/pagination'
 import 'swiper/modules/pagination/pagination.min.css'
-// import './style.css'
 
 export default {
   data () {
@@ -84,8 +81,3 @@ export default {
   }
 }
 </script>
-<style>
-/* .swiper-pagination-bullet-active {
-  background: $primary;
-} */
-</style>

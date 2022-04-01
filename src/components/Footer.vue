@@ -4,13 +4,18 @@
       <div>
         <ul>
           <li>
-            <a href="#" class="link-light mb-3 text-decoration-none">About</a>
+            <!-- <a href="#" class="link-light mb-3 text-decoration-none">About</a> -->
+            <router-link
+              to="/#cardList"
+              class="link-light mb-3 text-decoration-none"
+              >About</router-link
+            >
           </li>
           <li>
-            <a href="#" class="link-light mb-3 text-decoration-none">LINE UP</a>
-          </li>
-          <li>
-            <a href="#" class="link-light mb-3 text-decoration-none"
+            <a
+              href="https://opensea.io/"
+              target="_blank"
+              class="link-light mb-3 text-decoration-none"
               >OPEN SEA</a
             >
           </li>
