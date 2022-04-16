@@ -4,7 +4,6 @@
       <div>
         <ul>
           <li>
-            <!-- <a href="#" class="link-light mb-3 text-decoration-none">About</a> -->
             <router-link
               to="/#cardList"
               class="link-light mb-3 text-decoration-none"

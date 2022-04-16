@@ -112,9 +112,6 @@ export default {
 </script>
 <style>
 .my-atropos {
-  /* width: 320px;
-  height: 320px; */
   width: 100%;
-  /* background: pink; */
 }
 </style>

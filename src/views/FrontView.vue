@@ -1,6 +1,6 @@
 <template>
   <FrontNavbar></FrontNavbar>
-  <router-view></router-view>
+  <router-view />
 
   <Footer></Footer>
 </template>
