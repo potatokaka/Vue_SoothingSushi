@@ -31,15 +31,15 @@
                     </button>
                     <img
                       :src="item.product.imageUrl"
-                      alt=""
-                      style="width: auto; height: 100px; object-fit: cover"
+                      :alt="item.product.title"
+                      class="h-cart-view-img object-fit"
                     />
                     <p class="mb-0 fw-bold ms-3 d-inline-block">
                       {{ item.product.title }}
                     </p>
                   </th>
-                  <td class="border-0 align-middle" style="max-width: 160px">
-                    <div class="input-group pe-5">
+                  <td class="border-0 align-middle w-cart-view-col">
+                    <div class="input-group pe-0 pe-lg-5 d-flex flex-nowrap">
                       <div class="input-group-prepend">
                         <button
                           class="btn btn-outline-dark border-0 py-2 link-white bg-transparent"
@@ -173,6 +173,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import emitter from '../methods/emitter'
 
@@ -191,10 +192,19 @@ export default {
         .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
         .then((res) => {
           this.cart = res.data.data
-          console.log(res)
         })
         .catch((err) => {
-          console.log(err.response.data)
+          // console.log(err.response.data)
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'error',
+            title: err.response.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#e8584d',
+            timer: 30000
+          })
         })
     },
     updateCart (item, qty = 1) {
@@ -205,17 +215,21 @@ export default {
           data: {
             product_id: item.product_id,
             qty: qty
-            // qty: item.qty
           }
         }
       } else {
-        alert('商品數量不得為 0')
-        obj = {
-          data: {
-            product_id: item.product_id,
-            qty: 1
-          }
-        }
+        // alert('商品數量不得為 0')
+        this.$swal({
+          toast: true,
+          position: 'bottom-end',
+          icon: 'error',
+          title: '商品數量不得為 0',
+          showConfirmButton: false,
+          showCloseButton: true,
+          iconColor: '#FFBCAA',
+          timer: 3000
+        })
+        return
       }
 
       this.$http
@@ -224,32 +238,84 @@ export default {
           obj
         )
         .then((res) => {
-          alert(res.data.message)
+          // alert(res.data.message)
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'success',
+            title: res.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#FFBCAA',
+            timer: 3000
+          })
           this.isLoadingItem = ''
           this.getCart()
           // Navbar 重新抓購物車資料
           emitter.emit('get-cart')
         })
         .catch((err) => {
-          console.log(err.response.data)
+          // console.log(err.response.data)
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'error',
+            title: err.response.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#e8584d',
+            timer: 30000
+          })
         })
     },
     deleteCartItem (id) {
-      const confirmDelete = confirm('Do you want to delete this item?')
-      if (confirmDelete) {
-        this.$http
-          .delete(
-            `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${id}`
-          )
-          .then((res) => {
-            console.log(res.data)
-            this.getCart()
-            emitter.emit('get-cart')
-          })
-          .catch((err) => {
-            console.log(err.response.data)
-          })
-      }
+      // const confirmDelete = confirm('Do you want to delete this item?')
+      // if (confirmDelete) {
+      //   ... delete API
+      // }
+      this.$swal({
+        icon: 'warning',
+        title: 'Are you sure you want to delete this?',
+        showConfirmButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        showCancelButton: true,
+        showCloseButton: true,
+        iconColor: '#FFBCAA',
+        timer: 3000
+      }).then((result) => {
+        if (result.isConfirmed) {
+          this.$http
+            .delete(
+              `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart/${id}`
+            )
+            .then((res) => {
+              this.$swal({
+                toast: true,
+                position: 'bottom-end',
+                icon: 'success',
+                title: res.data.message,
+                showConfirmButton: false,
+                showCloseButton: true,
+                iconColor: '#FFBCAA',
+                timer: 3000
+              })
+              this.getCart()
+              emitter.emit('get-cart')
+            })
+            .catch((err) => {
+              this.$swal({
+                toast: true,
+                position: 'bottom-end',
+                icon: 'error',
+                title: err.response.data.message,
+                showConfirmButton: false,
+                showCloseButton: true,
+                iconColor: '#e8584d',
+                timer: 30000
+              })
+            })
+        }
+      })
     },
     checkCoupon () {
       const obj = {
@@ -263,13 +329,33 @@ export default {
           obj
         )
         .then((res) => {
-          alert(res.data.message)
+          // alert(res.data.message)
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'success',
+            title: res.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#FFBCAA',
+            timer: 3000
+          })
           this.hasCoupon = true
           this.getCart()
         })
         .catch((err) => {
-          console.log(err.response.data)
-          alert(err.response.data.message)
+          // console.log(err.response.data)
+          // alert(err.response.data.message)
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'error',
+            title: err.response.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#e8584d',
+            timer: 30000
+          })
         })
     }
   },

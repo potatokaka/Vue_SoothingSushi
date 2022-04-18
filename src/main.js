@@ -15,6 +15,10 @@ import { required, email, min } from '@vee-validate/rules'
 // import { localize, setLocale } from '@vee-validate/i18n'
 // import zhTW from '@vee-validate/i18n/dist/locale/zh_TW.json'
 
+// Sweet Alert
+import VueSweetalert2 from 'vue-sweetalert2'
+import 'sweetalert2/dist/sweetalert2.min.css'
+
 import App from './App.vue'
 import router from './router'
 
@@ -36,5 +40,8 @@ app.use(VueAxios, axios)
 app.component('Form', Form)
 app.component('Field', Field)
 app.component('ErrorMessage', ErrorMessage)
+
+// Sweet Alert
+app.use(VueSweetalert2)
 
 app.mount('#app')

@@ -1,19 +1,7 @@
 <template>
   <div class="container text-gray-400 pt-8 position-relative">
-    <!-- <div
-      style="
-        min-height: 400px;
-        background-image: url(https://images.unsplash.com/photo-1480399129128-2066acb5009e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80);
-        background-position: center center;
-      "
-    ></div> -->
     <div class="row mt-8 mb-7">
       <div class="offset-lg-1 col-lg-6">
-        <!-- <img
-          src="../assets/images/product_01.png"
-          alt="productImage"
-          class="img-fluid mt-4 w-100"
-        /> -->
         <Atropos
           class="my-atropos"
           :active-offset="40"
@@ -22,11 +10,13 @@
           :shadow-scale="1.05"
           :rotateXMax="20"
           :rotateYMax="20"
-          @enter="onEnter"
-          @leave="onLeave"
-          @rotate="onRotate"
         >
-          <img :src="product.imageUrl" data-atropos-offset="-5" class="w-100" />
+          <img
+            :src="product.imageUrl"
+            data-atropos-offset="-5"
+            class="w-100"
+            :alt="product.title"
+          />
         </Atropos>
         <!-- Accordion -->
         <div
@@ -122,7 +112,6 @@
       </div>
       <div class="col-lg-4 position-sticky top-0">
         <h1 class="mb-0">{{ product.title }}</h1>
-        <!-- <p class="fw-bold">NT$1,200</p> -->
         <p class="mt-3">
           {{ product.description }}
         </p>
@@ -178,6 +167,7 @@
         </div>
         <button
           href="./checkout.html"
+          type="button"
           class="btn btn-primary btn-block h-btn-lg w-100"
           :disabled="isLoadingItem === product.id"
           @click="addToCart(product.id)"
@@ -194,6 +184,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import Atropos from 'atropos/vue/atropos-vue.esm.js'
 import emitter from '../methods/emitter'
@@ -217,11 +208,20 @@ export default {
           `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/product/${id}`
         )
         .then((res) => {
-          console.log(res)
           this.product = res.data.product
         })
         .catch((err) => {
-          console.log(err.response.data)
+          // console.log(err.response.data)
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'error',
+            title: err.response.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#e8584d',
+            timer: 30000
+          })
         })
     },
     addToCart (id, qty = 1) {
@@ -238,35 +238,31 @@ export default {
           obj
         )
         .then((res) => {
-          alert(res.data.message) // 觸發 FrontNavbar 的監聽
-          emitter.emit('get-cart')
+          // alert(res.data.message)
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'success',
+            title: res.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#FFBCAA',
+            timer: 3000
+          })
+          emitter.emit('get-cart') // 觸發 FrontNavbar 的監聽
           this.isLoadingItem = ''
         })
         .catch((err) => {
-          console.log(err.response.data)
-          this.isLoadingItem = ''
-        })
-    },
-    updateCart (id) {
-      this.isLoadingItem = id
-      const obj = {
-        data: {
-          product_id: id,
-          qty: this.qty
-        }
-      }
-      this.$http
-        .post(
-          `${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`,
-          obj
-        )
-        .then((res) => {
-          alert(res.data.message) // 觸發 FrontNavbar 的監聽
-          emitter.emit('get-cart')
-          this.isLoadingItem = ''
-        })
-        .catch((err) => {
-          console.log(err.response.data)
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'error',
+            title: err.response.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#e8584d',
+            timer: 30000
+          })
           this.isLoadingItem = ''
         })
     }

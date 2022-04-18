@@ -109,7 +109,12 @@ $utilities: map-merge(
 .link-white:hover {
     color: $primary !important;
 }
-
+.object-fit {
+  width: 100% ; 
+  height: 100% ; 
+  object-fit: cover ; 
+  object-position: center ; 
+}
 .svg-white { 
   transition: all 0.5s ease-out;
   path {
@@ -129,7 +134,7 @@ $utilities: map-merge(
   cursor: pointer;
 }
 
-// Hide Arrows From Input Number
+// Hide Arrows From Input Number 隱藏 Input 右方的上下三角形
 // https://www.w3schools.com/howto/howto_css_hide_arrow_number.asp
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

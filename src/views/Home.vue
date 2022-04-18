@@ -1,7 +1,7 @@
 <template>
-  <HeroBanner></HeroBanner>
-  <CardList></CardList>
-  <SwiperSlide></SwiperSlide>
+  <HeroBanner />
+  <CardList />
+  <SwiperSlide />
 </template>
 
 <script>

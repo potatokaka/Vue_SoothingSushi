@@ -39,7 +39,6 @@
           </li>
           <li class="me-4">
             <a href="#" target="_blank" class="svg-gray">
-              <!-- <img src="../assets/images/icon/Medium.svg" alt="Medium" /> -->
               <svg
                 width="32"
                 height="32"
@@ -109,6 +108,7 @@
         <img
           src="../assets/images/logo_getSoothing_01.svg"
           class="h-footerLogo d-block"
+          alt="logo-footer"
         />
 
         <p class="fs-9 mt-3 text-gray-600">© 2022 Get SOOTHING.</p>

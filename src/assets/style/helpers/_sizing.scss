@@ -24,3 +24,26 @@
 .w-btn-md {
     width: 8.25rem; //132
 }
+.w-btn-lg {
+    width: 12.25rem; //200
+}
+.h-cart-view-img {
+    // width: 6.25rem; // 100px;
+    width: 5rem; // 100px; 
+    height: auto;
+    @include media-breakpoint-up(md) {
+        width: auto;
+        width: 6.25rem // 100px;
+    }
+}
+.w-cart-view-col {
+    max-width: 20rem;
+    @include media-breakpoint-up(md) {
+        max-width: 10rem; //160px
+    }
+}
+
+.h-cart-checkout-img {
+    width: 3rem; //48px; 
+    height: 3rem; //48px; 
+}

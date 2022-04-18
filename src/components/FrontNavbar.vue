@@ -3,8 +3,7 @@
     <div class="container pe-3">
       <nav class="navbar px-0 navbar-expand-lg navbar-dark">
         <router-link
-          class="navbar-brand position-absolute"
-          style="left: 50%; transform: translate(-50%, -10%); top: 50%"
+          class="navbar-brand position-absolute logo-header-wrapper"
           to="/"
         >
           <img
@@ -30,17 +29,11 @@
         >
           <ul class="navbar-nav">
             <li class="nav-item active">
-              <!-- <a class="nav-link ps-0 link-white me-3" href="#cardList"
-                >About</a
-              > -->
               <router-link to="/#cardList" class="nav-link ps-0 link-white me-3"
                 >About</router-link
               >
             </li>
             <li class="nav-item">
-              <!-- <a class="nav-link link-white me-3" href="./detail.html"
-                >Team</a
-              > -->
               <router-link to="/#team" class="nav-link ps-0 link-white me-3"
                 >Team</router-link
               >
@@ -48,9 +41,6 @@
           </ul>
         </div>
         <div class="d-flex">
-          <!-- <a href="#" class="link-white me-5 disabled">
-            <i class="bi bi-heart fs-5"></i>
-          </a> -->
           <router-link to="/cart" class="link-white position-relative">
             <i class="bi bi-cart fs-5 pe-1"></i>
             <span
@@ -66,6 +56,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import emitter from '../methods/emitter'
 export default {
@@ -80,10 +71,19 @@ export default {
         .get(`${process.env.VUE_APP_API}/api/${process.env.VUE_APP_PATH}/cart`)
         .then((res) => {
           this.cart = res.data.data
-          console.log(res)
         })
         .catch((err) => {
-          console.log(err.response.data)
+          // console.log(err.response.data)
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'error',
+            title: err.response.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#e8584d',
+            timer: 30000
+          })
         })
     }
   },

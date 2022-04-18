@@ -1,5 +1,4 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-// import Home from '../views/Home.vue'
 
 const routes = [
   // 前台首頁
@@ -29,6 +28,12 @@ const routes = [
         component: () => import('../views/CartSuccess.vue')
       }
     ]
+  },
+  // 404
+  {
+    path: '/:pathMatch(.*)*',
+    name: '404',
+    component: () => import('../views/404NotFound.vue')
   }
 ]
 

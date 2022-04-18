@@ -30,6 +30,7 @@
           </p>
           <button
             class="btn btn-outline-white btn-lg mt-2 mt-lg-4 px-6 rounded-pill disabled"
+            type="button"
           >
             Get NFT
           </button>

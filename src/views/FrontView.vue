@@ -1,9 +1,10 @@
 <template>
-  <FrontNavbar></FrontNavbar>
-  <router-view />
+  <FrontNavbar />
+  <RouterView />
 
-  <Footer></Footer>
+  <Footer />
 </template>
+
 <script>
 import FrontNavbar from '@/components/FrontNavbar.vue'
 import Footer from '@/components/Footer.vue'

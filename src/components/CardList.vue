@@ -13,7 +13,12 @@
           :rotateYMax="20"
         >
           <router-link :to="`/product/${item.id}`">
-            <img :src="item.imageUrl" data-atropos-offset="-5" class="w-100" />
+            <img
+              :src="item.imageUrl"
+              data-atropos-offset="-5"
+              class="w-100"
+              :alt="item.title"
+            />
             <h3 class="cardTitle fs-2">{{ item.title }}</h3>
           </router-link>
         </Atropos>
@@ -37,6 +42,7 @@
           >
           <button
             class="btn btn-outline-primary rounded-pill px-4 fw-light w-btn-md"
+            type="button"
             @click="addToCart(item.id)"
             :disabled="isLoadingItem === item.id"
           >
@@ -51,6 +57,7 @@
     </div>
   </div>
 </template>
+
 <script>
 import Atropos from 'atropos/vue/atropos-vue.esm.js'
 import emitter from '../methods/emitter'
@@ -76,7 +83,17 @@ export default {
           this.products = res.data.products.sort((a, b) => a.price - b.price)
         })
         .catch((err) => {
-          console.log(err.response.data)
+          // console.log(err.response.data)
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'error',
+            title: err.response.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#e8584d',
+            timer: 30000
+          })
         })
     },
     addToCart (id, qty = 1) {
@@ -94,13 +111,30 @@ export default {
           obj
         )
         .then((res) => {
-          console.log(res.data)
-          alert(res.data.message) // 觸發 FrontNavbar 的監聽
-          emitter.emit('get-cart')
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'success',
+            title: res.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#FFBCAA',
+            timer: 3000
+          })
+          emitter.emit('get-cart') // 觸發 FrontNavbar 的監聽
           this.isLoadingItem = ''
         })
         .catch((err) => {
-          console.log(err.response.data)
+          this.$swal({
+            toast: true,
+            position: 'bottom-end',
+            icon: 'error',
+            title: err.response.data.message,
+            showConfirmButton: false,
+            showCloseButton: true,
+            iconColor: '#e8584d',
+            timer: 30000
+          })
           this.isLoadingItem = ''
         })
     }
@@ -110,6 +144,7 @@ export default {
   }
 }
 </script>
+
 <style>
 .my-atropos {
   width: 100%;
