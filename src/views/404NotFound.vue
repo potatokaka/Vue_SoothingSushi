@@ -1,5 +1,5 @@
 <template>
-  <FrontNavbar />
+  <NavbarFront />
   <div class="container pt-8 text-gray-200">
     <h2 class="text-gray-200 mt-8 mb-5">Oops! Not Found 😂</h2>
     <p>
@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import FrontNavbar from '@/components/FrontNavbar.vue'
+import NavbarFront from '@/components/NavbarFront.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
   components: {
-    FrontNavbar,
+    NavbarFront,
     Footer
   }
 }

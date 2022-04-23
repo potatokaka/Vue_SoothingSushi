@@ -1,49 +1,56 @@
 .h-hero {
-    height: 100vh;
-    @include media-breakpoint-up(md) {
-        // height: 43.75rem; // 700px
-         height: 42.55rem; // 680px
-
-    }
+  height: 100vh;
+  @include media-breakpoint-up(md) {
+    height: 42.55rem; // 680px
+  }
 }
 .h-hero-innerImg {
-    // height: 35rem; // 560px
     width: 22rem;
     height: 100%;
-    
 }
 .h-footerLogo {
-    width: 1.5rem; 
-    @include media-breakpoint-up(md) {
-        width: 6.25rem // 100px;
-    }
+  width: 1.5rem; 
+  @include media-breakpoint-up(md) {
+    width: 6.25rem // 100px;
+  }
+}
+.h-admin-logo {
+  width: 3rem;
 }
 .h-btn-lg {
-    height: 3.25rem; //42
+  height: 3.25rem; //42
 }
 .w-btn-md {
-    width: 8.25rem; //132
+  width: 8.25rem; //132
+}
+.w-btn-sm {
+  width: 4.75rem;
 }
 .w-btn-lg {
-    width: 12.25rem; //200
+  width: 12.25rem; //200
 }
 .h-cart-view-img {
-    // width: 6.25rem; // 100px;
-    width: 5rem; // 100px; 
-    height: auto;
-    @include media-breakpoint-up(md) {
-        width: auto;
-        width: 6.25rem // 100px;
-    }
+  width: 5rem; // 100px; 
+  height: auto;
+  @include media-breakpoint-up(md) {
+      width: auto;
+      width: 6.25rem // 100px;
+  }
 }
 .w-cart-view-col {
-    max-width: 20rem;
-    @include media-breakpoint-up(md) {
-        max-width: 10rem; //160px
-    }
+  max-width: 20rem;
+  @include media-breakpoint-up(md) {
+    max-width: 10rem; //160px
+  }
 }
 
 .h-cart-checkout-img {
-    width: 3rem; //48px; 
-    height: 3rem; //48px; 
+  width: 3rem; //48px; 
+  height: 3rem; //48px; 
+}
+.w-about-img {
+  width: 60vw;
+  @include media-breakpoint-up(md) {
+    width: 23rem;
+  }
 }

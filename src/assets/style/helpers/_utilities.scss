@@ -3,7 +3,6 @@ $utilities: () !default;
 $utilities: map-merge(
   $utilities,
   (
-    
     // Margin Responsive
     "margin": (
       responsive: true,
@@ -98,6 +97,13 @@ $utilities: map-merge(
         mont: 'Montserrat', // 客製字型
       )
     ),
+    "font-size": (
+      rfs: true,
+      property: font-size,
+      responsive: true, // 將字體大小改成 響應式的
+      class: fs,
+      values: $font-sizes
+    ),
 
   )
 );
@@ -105,9 +111,11 @@ $utilities: map-merge(
 .link-white {
     color: rgba(255, 255, 255, 0.75) !important
 }
-
 .link-white:hover {
     color: $primary !important;
+}
+.navbar-dark .navbar-nav .nav-link.active {
+  color: $primary !important;
 }
 .object-fit {
   width: 100% ; 
@@ -150,5 +158,6 @@ input[type=number] {
 .z-index-1000 {
   z-index: 1000;
 }
-
-// form
+.z-index-900 {
+  z-index: 900;
+}

@@ -1,0 +1,18 @@
+.modalFavorite {
+    position: absolute;
+    right: 1rem;
+    width: 90vw;
+    border-radius: 0.5rem;
+    background: $gray-600;
+    display: none;
+    @include media-breakpoint-up(md) {
+        right: 2rem;
+        width: 24rem;
+    }
+}
+.favoriteWrapper li {
+    border-bottom: 1px solid $gray-800;
+}
+.favoriteWrapper li:last-child {
+    border: none
+}

@@ -249,7 +249,7 @@ export default {
             iconColor: '#FFBCAA',
             timer: 3000
           })
-          emitter.emit('get-cart') // 觸發 FrontNavbar 的監聽
+          emitter.emit('get-cart') // 觸發 NavbarFront 的監聽
           this.isLoadingItem = ''
         })
         .catch((err) => {

@@ -9,7 +9,8 @@
 @import "./helpers/background";
 @import "./component/navbar"; 
 @import "./base/base";
-
+@import "./component/_timeline.scss";
+@import "./component/_modalFavorite.scss";
 
 // 套件
 @import "./vendor/swiper";

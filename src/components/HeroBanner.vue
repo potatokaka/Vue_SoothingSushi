@@ -24,15 +24,17 @@
       <div class="offset-lg-1 col-lg-5 d-flex align-items-center">
         <div class="ms-5 pb-0 pb-lg-5 mt-lg-8">
           <h1 class="text-white h0">Get Soothing, Get Sushi!</h1>
-          <p class="text-white">
+          <p class="text-white mb-3">
             An NFT like no other, all you can eat. <br />
             A State-of-the-Art Suchi Bar
           </p>
           <button
-            class="btn btn-outline-white btn-lg mt-2 mt-lg-4 px-6 rounded-pill disabled"
+            class="btn btn-outline-secondary rounded-pill px-4 fw-light me-3"
             type="button"
           >
-            Get NFT
+            <router-link to="/" class="link-white fw-bold">
+              View our roadmap
+            </router-link>
           </button>
         </div>
       </div>

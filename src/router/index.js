@@ -12,8 +12,16 @@ const routes = [
         component: () => import('../views/Home.vue') // 首頁
       },
       {
+        path: 'products',
+        component: () => import('../views/ProductsView.vue')
+      },
+      {
         path: 'product/:id',
         component: () => import('../views/ProductDetail.vue')
+      },
+      {
+        path: 'roadmap',
+        component: () => import('../views/RoadmapView.vue')
       },
       {
         path: 'cart',
@@ -29,6 +37,31 @@ const routes = [
       }
     ]
   },
+  // 帳號登入
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/LoginView.vue')
+  },
+  // 後台
+  {
+    path: '/admin',
+    component: () => import('../views/backend/DashboardView.vue'),
+    children: [
+      {
+        path: 'products',
+        component: () => import('../views/backend/ProductsAdmin.vue')
+      },
+      {
+        path: 'orders',
+        component: () => import('../views/backend/OrderView.vue')
+      },
+      {
+        path: 'coupons',
+        component: () => import('../views/backend/CouponsAdmin.vue')
+      }
+    ]
+  },
   // 404
   {
     path: '/:pathMatch(.*)*',
@@ -40,6 +73,7 @@ const routes = [
 const router = createRouter({
   history: createWebHashHistory(),
   routes,
+  linkActiveClass: 'active', // bootstrap CSS 樣式
   // 連至 hash 錨點
   scrollBehavior: function (to, from, savedPosition) {
     if (to.hash) {

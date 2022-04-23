@@ -103,7 +103,6 @@
                 id="button-addon2"
                 @click="checkCoupon"
               >
-                <!-- <i class="fas fa-paper-plane"></i> -->
                 <span class="material-icons-outlined me-2">
                   local_activity
                 </span>
@@ -111,7 +110,6 @@
               </button>
             </div>
           </div>
-          <!-- <router-link to="/" class="mt-5"> Continue Shopping </router-link> -->
           <div class="mt-5">
             <router-link to="/" class="link-gray-400 mt-md-0 d-flex">
               <i class="bi bi-chevron-left me-3"></i> Continue shopping
@@ -169,7 +167,6 @@
           </div>
         </div>
       </div>
-      <!-- You may also like -->
     </div>
   </div>
 </template>

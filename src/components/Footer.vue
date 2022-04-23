@@ -5,9 +5,16 @@
         <ul>
           <li>
             <router-link
-              to="/#cardList"
+              to="/products"
               class="link-light mb-3 text-decoration-none"
-              >About</router-link
+              >Products</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              to="/roadmap"
+              class="link-light mb-3 text-decoration-none"
+              >Roadmap</router-link
             >
           </li>
           <li>

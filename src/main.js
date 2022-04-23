@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
-// Atropos
+// Atropos Card
 import 'atropos/atropos.css'
 // Bootstrap
 import 'bootstrap'
@@ -19,6 +19,12 @@ import { required, email, min } from '@vee-validate/rules'
 import VueSweetalert2 from 'vue-sweetalert2'
 import 'sweetalert2/dist/sweetalert2.min.css'
 
+// Loading Overlay
+import Loading from 'vue3-loading-overlay'
+import 'vue3-loading-overlay/dist/vue3-loading-overlay.css'
+
+import { currency, date } from '@/methods/filters'
+
 import App from './App.vue'
 import router from './router'
 
@@ -33,6 +39,11 @@ configure({
 // setLocale('zh_TW')
 
 const app = createApp(App)
+
+app.config.globalProperties.$filters = {
+  currency,
+  date
+}
 app.use(router)
 app.use(VueAxios, axios)
 
@@ -40,6 +51,8 @@ app.use(VueAxios, axios)
 app.component('Form', Form)
 app.component('Field', Field)
 app.component('ErrorMessage', ErrorMessage)
+// Loading Overlay
+app.component('Loading', Loading)
 
 // Sweet Alert
 app.use(VueSweetalert2)

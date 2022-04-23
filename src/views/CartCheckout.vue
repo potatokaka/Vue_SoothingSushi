@@ -298,7 +298,6 @@ export default {
           this.cart = res.data.data
         })
         .catch((err) => {
-          // console.log(err.response.data)
           this.$swal({
             toast: true,
             position: 'bottom-end',
@@ -320,7 +319,6 @@ export default {
           { data: this.form }
         )
         .then((res) => {
-          // alert(res.data.message)
           this.$swal({
             toast: true,
             position: 'bottom-end',
@@ -337,7 +335,6 @@ export default {
           this.$router.push('/checkoutSuccess') // 跳至結帳成功頁
         })
         .catch((err) => {
-          // alert(err.response.data.message)
           this.isLoadingItem = false
           this.$swal({
             toast: true,
